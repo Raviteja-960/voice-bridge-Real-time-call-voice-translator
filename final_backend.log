@@ -1,0 +1,132 @@
+INFO:     Started server process [20620]
+INFO:     Waiting for application startup.
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\HP\Lib\logging\__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\HP\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f680' in position 45: character maps to <undefined>
+Call stack:
+  File "d:\Voice Bridge\voicebridge-ai\backend\main.py", line 101, in <module>
+    uvicorn.run(
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\uvicorn\main.py", line 575, in run
+    server.run()
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\uvicorn\server.py", line 65, in run
+    return asyncio.run(self.serve(sockets=sockets))
+  File "C:\Users\HP\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\HP\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\HP\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\HP\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\HP\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\HP\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\HP\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\uvicorn\lifespan\on.py", line 86, in main
+    await app(scope, self.receive, self.send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\engineio\async_drivers\asgi.py", line 63, in __call__
+    await self.lifespan(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\engineio\async_drivers\asgi.py", line 96, in lifespan
+    await self.other_asgi_app(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\middleware\errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\middleware\gzip.py", line 26, in __call__
+    await self.app(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\middleware\cors.py", line 77, in __call__
+    await self.app(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\middleware\exceptions.py", line 51, in __call__
+    await self.app(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\routing.py", line 765, in app
+    await self.lifespan(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\routing.py", line 732, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\HP\Lib\contextlib.py", line 204, in __aenter__
+    return await anext(self.gen)
+  File "d:\Voice Bridge\voicebridge-ai\backend\main.py", line 33, in lifespan
+    logger.info("\U0001f680 VoiceBridge AI starting up …")
+Message: '\U0001f680 VoiceBridge AI starting up …'
+Arguments: ()
+2026-06-03 14:16:59 | [32mINFO[0m | app.db.mongodb | Connecting to MongoDB at mongodb://localhost:27017 …
+2026-06-03 14:16:59 | [32mINFO[0m | pymongo.serverSelection | {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "ping", "topologyDescription": "<TopologyDescription id: 6a1fea03666ab561e5b39130, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6a1fea03666ab561e5b39130"}, "remainingTimeMS": 5}
+2026-06-03 14:17:04 | [33mWARNING[0m | app.db.mongodb | Could not connect to MongoDB at mongodb://localhost:27017 — running without DB: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 5.0s, Topology Description: <TopologyDescription id: 6a1fea03666ab561e5b39130, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2026-06-03 14:17:04 | [33mWARNING[0m | main | Whisper warm-up failed (non-fatal): argument of type 'NoneType' is not iterable
+INFO:     Application startup complete.
+ERROR:    [Errno 10048] error while attempting to bind on address ('0.0.0.0', 8000): only one usage of each socket address (protocol/network address/port) is normally permitted
+INFO:     Waiting for application shutdown.
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\HP\Lib\logging\__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\HP\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f6d1' in position 45: character maps to <undefined>
+Call stack:
+  File "d:\Voice Bridge\voicebridge-ai\backend\main.py", line 101, in <module>
+    uvicorn.run(
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\uvicorn\main.py", line 575, in run
+    server.run()
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\uvicorn\server.py", line 65, in run
+    return asyncio.run(self.serve(sockets=sockets))
+  File "C:\Users\HP\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\HP\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\HP\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\HP\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\HP\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\HP\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\HP\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\uvicorn\lifespan\on.py", line 86, in main
+    await app(scope, self.receive, self.send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\engineio\async_drivers\asgi.py", line 63, in __call__
+    await self.lifespan(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\engineio\async_drivers\asgi.py", line 96, in lifespan
+    await self.other_asgi_app(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\middleware\errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\middleware\gzip.py", line 26, in __call__
+    await self.app(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\middleware\cors.py", line 77, in __call__
+    await self.app(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\middleware\exceptions.py", line 51, in __call__
+    await self.app(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\routing.py", line 765, in app
+    await self.lifespan(scope, receive, send)
+  File "d:\Voice Bridge\final_venv\Lib\site-packages\starlette\routing.py", line 732, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\HP\Lib\contextlib.py", line 211, in __aexit__
+    await anext(self.gen)
+  File "d:\Voice Bridge\voicebridge-ai\backend\main.py", line 48, in lifespan
+    logger.info("\U0001f6d1 VoiceBridge AI shutting down …")
+Message: '\U0001f6d1 VoiceBridge AI shutting down …'
+Arguments: ()
+INFO:     Application shutdown complete.
