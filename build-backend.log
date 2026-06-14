@@ -1,0 +1,152 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 1.78kB 0.2s done
+#1 DONE 0.6s
+
+#2 [internal] load metadata for docker.io/library/python:3.11-slim
+#2 DONE 3.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B 0.1s done
+#3 DONE 0.2s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [builder 1/6] FROM docker.io/library/python:3.11-slim@sha256:a3ab0b966bc4e91546a033e22093cb840908979487a9fc0e6e38295747e49ac0
+#5 resolve docker.io/library/python:3.11-slim@sha256:a3ab0b966bc4e91546a033e22093cb840908979487a9fc0e6e38295747e49ac0
+#5 resolve docker.io/library/python:3.11-slim@sha256:a3ab0b966bc4e91546a033e22093cb840908979487a9fc0e6e38295747e49ac0 0.8s done
+#5 DONE 0.9s
+
+#4 [internal] load build context
+#4 transferring context: 38B 0.1s done
+#4 DONE 0.2s
+
+#6 [builder 2/6] WORKDIR /app
+#6 CACHED
+
+#7 [builder 3/6] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     ffmpeg     libsndfile1     git     && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [builder 4/6] RUN python -m venv /opt/venv
+#8 CACHED
+
+#9 [builder 5/6] COPY requirements.txt .
+#9 CACHED
+
+#10 [builder 6/6] RUN pip install --upgrade pip setuptools wheel &&     pip install --no-cache-dir --no-build-isolation -r requirements.txt
+#10 75.25 Requirement already satisfied: pip in /opt/venv/lib/python3.11/site-packages (24.0)
+#10 76.27 Collecting pip
+#10 76.50   Downloading pip-26.1.1-py3-none-any.whl.metadata (4.6 kB)
+#10 76.53 Requirement already satisfied: setuptools in /opt/venv/lib/python3.11/site-packages (79.0.1)
+#10 77.20 Collecting setuptools
+#10 77.25   Downloading setuptools-82.0.1-py3-none-any.whl.metadata (6.5 kB)
+#10 77.37 Collecting wheel
+#10 77.65   Downloading wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)
+#10 77.86 Collecting packaging>=24.0 (from wheel)
+#10 77.91   Downloading packaging-26.2-py3-none-any.whl.metadata (3.5 kB)
+#10 77.97 Downloading pip-26.1.1-py3-none-any.whl (1.8 MB)
+#10 79.41    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 1.8/1.8 MB 1.4 MB/s eta 0:00:00
+#10 79.49 Downloading setuptools-82.0.1-py3-none-any.whl (1.0 MB)
+#10 81.22    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 1.0/1.0 MB 651.8 kB/s eta 0:00:00
+#10 81.24 Downloading wheel-0.47.0-py3-none-any.whl (32 kB)
+#10 81.35 Downloading packaging-26.2-py3-none-any.whl (100 kB)
+#10 81.48    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 100.2/100.2 kB 887.4 kB/s eta 0:00:00
+#10 83.08 Installing collected packages: setuptools, pip, packaging, wheel
+#10 83.09   Attempting uninstall: setuptools
+#10 83.09     Found existing installation: setuptools 79.0.1
+#10 84.82     Uninstalling setuptools-79.0.1:
+#10 92.25       Successfully uninstalled setuptools-79.0.1
+#10 105.4   Attempting uninstall: pip
+#10 105.5     Found existing installation: pip 24.0
+#10 106.2     Uninstalling pip-24.0:
+#10 114.2       Successfully uninstalled pip-24.0
+#10 134.7 Successfully installed packaging-26.2 pip-26.1.1 setuptools-82.0.1 wheel-0.47.0
+#10 156.8 Collecting fastapi==0.111.0 (from -r requirements.txt (line 2))
+#10 159.8   Downloading fastapi-0.111.0-py3-none-any.whl.metadata (25 kB)
+#10 160.3 Collecting uvicorn==0.29.0 (from uvicorn[standard]==0.29.0->-r requirements.txt (line 3))
+#10 160.4   Downloading uvicorn-0.29.0-py3-none-any.whl.metadata (6.3 kB)
+#10 160.5 Collecting python-multipart==0.0.9 (from -r requirements.txt (line 4))
+#10 160.6   Downloading python_multipart-0.0.9-py3-none-any.whl.metadata (2.5 kB)
+#10 163.7 Collecting python-socketio==5.11.2 (from -r requirements.txt (line 7))
+#10 163.7   Downloading python_socketio-5.11.2-py3-none-any.whl.metadata (3.2 kB)
+#10 164.9 Collecting motor==3.4.0 (from -r requirements.txt (line 10))
+#10 165.1   Downloading motor-3.4.0-py3-none-any.whl.metadata (21 kB)
+#10 173.2 Collecting pymongo==4.7.2 (from -r requirements.txt (line 11))
+#10 173.3   Downloading pymongo-4.7.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+#10 174.5 Collecting python-jose==3.3.0 (from python-jose[cryptography]==3.3.0->-r requirements.txt (line 14))
+#10 174.6   Downloading python_jose-3.3.0-py2.py3-none-any.whl.metadata (5.4 kB)
+#10 174.8 Collecting passlib==1.7.4 (from passlib[bcrypt]==1.7.4->-r requirements.txt (line 15))
+#10 174.9   Downloading passlib-1.7.4-py2.py3-none-any.whl.metadata (1.7 kB)
+#10 175.6 Collecting bcrypt==4.1.3 (from -r requirements.txt (line 16))
+#10 175.7   Downloading bcrypt-4.1.3-cp39-abi3-manylinux_2_28_x86_64.whl.metadata (9.5 kB)
+#10 199.1 Collecting pydantic==2.7.1 (from -r requirements.txt (line 19))
+#10 200.3   Downloading pydantic-2.7.1-py3-none-any.whl.metadata (107 kB)
+#10 202.2 Collecting pydantic-settings==2.2.1 (from -r requirements.txt (line 20))
+#10 202.3   Downloading pydantic_settings-2.2.1-py3-none-any.whl.metadata (3.1 kB)
+#10 203.3 Collecting python-dotenv==1.0.1 (from -r requirements.txt (line 21))
+#10 203.4   Downloading python_dotenv-1.0.1-py3-none-any.whl.metadata (23 kB)
+#10 204.9 Collecting openai-whisper==20231117 (from -r requirements.txt (line 24))
+#10 205.1   Downloading openai-whisper-20231117.tar.gz (798 kB)
+#10 210.5      ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 798.6/798.6 kB 187.6 kB/s  0:00:05
+#10 213.8   Preparing metadata (pyproject.toml): started
+#10 228.3   Preparing metadata (pyproject.toml): finished with status 'error'
+#10 229.1   error: subprocess-exited-with-error
+#10 229.1   
+#10 229.1   ├ù Preparing metadata (pyproject.toml) did not run successfully.
+#10 229.1   Γöé exit code: 1
+#10 229.1   Γò░ΓöÇ> [17 lines of output]
+#10 229.1       Traceback (most recent call last):
+#10 229.1         File "/opt/venv/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 389, in <module>
+#10 229.1           main()
+#10 229.1         File "/opt/venv/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 373, in main
+#10 229.1           json_out["return_val"] = hook(**hook_input["kwargs"])
+#10 229.1                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#10 229.1         File "/opt/venv/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 175, in prepare_metadata_for_build_wheel
+#10 229.1           return hook(metadata_directory, config_settings)
+#10 229.1                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#10 229.1         File "/opt/venv/lib/python3.11/site-packages/setuptools/build_meta.py", line 380, in prepare_metadata_for_build_wheel
+#10 229.1           self.run_setup()
+#10 229.1         File "/opt/venv/lib/python3.11/site-packages/setuptools/build_meta.py", line 520, in run_setup
+#10 229.1           super().run_setup(setup_script=setup_script)
+#10 229.1         File "/opt/venv/lib/python3.11/site-packages/setuptools/build_meta.py", line 317, in run_setup
+#10 229.1           exec(code, locals())
+#10 229.1         File "<string>", line 5, in <module>
+#10 229.1       ModuleNotFoundError: No module named 'pkg_resources'
+#10 229.1       [end of output]
+#10 229.1   
+#10 229.1   note: This error originates from a subprocess, and is likely not a problem with pip.
+#10 229.5 error: metadata-generation-failed
+#10 229.5 
+#10 229.5 ├ù Encountered error while generating package metadata.
+#10 229.5 Γò░ΓöÇ> openai-whisper
+#10 229.5 
+#10 229.5 note: This is an issue with the package mentioned above, not pip.
+#10 229.5 hint: See above for details.
+#10 ERROR: process "/bin/sh -c pip install --upgrade pip setuptools wheel &&     pip install --no-cache-dir --no-build-isolation -r requirements.txt" did not complete successfully: exit code: 1
+------
+ > [builder 6/6] RUN pip install --upgrade pip setuptools wheel &&     pip install --no-cache-dir --no-build-isolation -r requirements.txt:
+229.1       [end of output]
+229.1   
+229.1   note: This error originates from a subprocess, and is likely not a problem with pip.
+229.5 error: metadata-generation-failed
+229.5 
+229.5 ├ù Encountered error while generating package metadata.
+229.5 Γò░ΓöÇ> openai-whisper
+229.5 
+229.5 note: This is an issue with the package mentioned above, not pip.
+229.5 hint: See above for details.
+------
+Dockerfile:19
+--------------------
+  18 |     COPY requirements.txt .
+  19 | >>> RUN pip install --upgrade pip setuptools wheel && \
+  20 | >>>     pip install --no-cache-dir --no-build-isolation -r requirements.txt
+  21 |     
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c pip install --upgrade pip setuptools wheel &&     pip install --no-cache-dir --no-build-isolation -r requirements.txt" did not complete successfully: exit code: 1
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/9gw3rtt2c5vu1vyb8win4zwfv

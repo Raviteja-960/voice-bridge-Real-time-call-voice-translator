@@ -1,0 +1,26 @@
+# Production overrides — merge with base compose file:
+# docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+
+services:
+  backend:
+    build:
+      target: runtime
+    environment:
+      DEBUG: "false"
+      ENVIRONMENT: production
+      LOG_LEVEL: WARNING
+    volumes: []   # no source mount in production
+
+  frontend:
+    build:
+      target: runtime
+    environment:
+      - NODE_ENV=production
+
+  nginx:
+    volumes:
+      - ./nginx/nginx.prod.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+
+  mongodb:
+    ports: []   # don't expose MongoDB port in production
