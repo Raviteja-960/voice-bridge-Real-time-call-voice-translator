@@ -1,0 +1,1 @@
+import{K as n}from"./index-DNSTJljU.js";async function o(t,a,s){const{data:e}=await n.post("/translate/text",{text:t,source_lang:a,target_lang:s});return e}async function c(t){const{data:a}=await n.post("/translate/detect",{text:t});return a}async function u(){const{data:t}=await n.get("/translate/status");return t}export{c as d,u as g,o as t};
